@@ -27,3 +27,4 @@ build.sbt
 #Other
 *.json
 .idea/
+*.log
