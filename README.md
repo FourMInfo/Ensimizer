@@ -6,8 +6,15 @@ Essentially the script creates an sbt project structure, and then creates links 
 
 In order for this to work you need to first add the Ensime sbt plugin to the appropriate sbt file  as per the instructions [here](http://ensime.org/build_tools/sbt/#install). The last line of the script runs `sbt ensimeConfig` so you don't have to.
 
+To run the script you go into the project directory where your Ammonite scripts are found and issue this command:
+
+`amm /directory/which/has/script/Ensimizer.sc`
+
+The Ensimizer Ammonite script uses Ammonite Ops and Shell so your `predefScript.sc` file must import both of these. In other words, it pretty much needs to be almost identical to `predef.sc` if you're using Ammonite Shell interactively.
+
 ## Current Caveats
 In this version of the script, there are several things you need to do manually. In future versions the script will provide ways to do this for you.
 1. If you want to check in your scripts into github without all the added scaffolding, copy the `.gitignore` file from the cloned project into your project directory. The ensimizer project was used on itself and as you can see only the script is in the project.
 1. If you add more scripts to the project directory after running the script the first time, you need to manually add links with the `.scala` extension.
+ 
 
