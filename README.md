@@ -6,11 +6,16 @@ Essentially the script creates an sbt project structure, and then creates links 
 
 In order for this to work you need to first add the Ensime sbt plugin to the appropriate sbt file  as per the instructions [here](http://ensime.org/build_tools/sbt/#install). The last line of the script runs `sbt ensimeConfig` so you don't have to.
 
-To run the script you go into the project directory where your Ammonite scripts are found and issue this command:
+To run the script you go into the project directory where your Ammonite scripts are found and issue this command in your shell:
 
-`amm /directory/which/has/script/Ensimizer.sc`
+`amm /directory/which/has/script/Ensimizer.sc ensimize`
 
-The Ensimizer Ammonite script uses Ammonite Ops and Shell so your `predefScript.sc` file must import both of these. In other words, it pretty much needs to be almost identical to `predef.sc` if you're using Ammonite Shell interactively.
+If you wish to cleanup all the added files run this command in your shell:
+
+`amm /directory/which/has/script/Ensimizer.sc unEnsimize`
+
+The Ensimizer Ammonite script uses Ammonite Ops  so your `predefScript.sc` file must include the following line:
+`import ammonite.ops._, ImplicitWd._`
 
 ## Current Caveats
 In this version of the script, there are several things you need to do manually. In future versions the script will provide ways to do this for you.
