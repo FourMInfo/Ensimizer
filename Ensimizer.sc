@@ -1,6 +1,4 @@
 @doc("Ensimizer allows you to ensime-ize an Ammonite script project directory so you can edit the scripts as Scala code in many text editor")
-// TO DO make Ensimizer a main function
-// TO DO create function just to link and move a sc file to src/main/scala so can move newly added scripts
 // TO DO paramaterize the vals at top
 // TO DO create .gitignore file so can check-in scripts w/o all the sbt/ensime overheads and link files
 // TO DO 
@@ -16,7 +14,8 @@ def ensimize() = {
                     .settings(
                       name := \"$projname\",
                       scalaVersion := \"$sversion\"
-                    )""")
+                    )
+                    """)
   // create project/build.properties
   write(wd/'project/"build.properties",s"sbt.version=$sbtversion\n")
   // create src/main/scala
@@ -37,4 +36,9 @@ def unEnsimize() = {
   rm! wd/".ensime"
   rm! wd/"build.sbt"
   ls! wd |? (_.ext == "log") | rm
+}
+
+@main
+def scalaIt(fil:String) = {
+  ln.s(Path(fil,wd),Path(fil.replaceAll("\\.[^.]*$", "") + ".scala",wd/'src/'main/'scala))
 }

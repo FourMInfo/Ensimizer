@@ -14,12 +14,16 @@ If you wish to cleanup all the added files run this command in your shell:
 
 `amm /directory/which/has/script/Ensimizer.sc unEnsimize`
 
+If you wish to ensimize a new script in your directory run this command in your shell:
+
+`amm ~/Scripts/Ammonite/Ensimizer.sc scalaIt "<filename>.sc"`
+
 The Ensimizer Ammonite script uses Ammonite Ops  so your `predefScript.sc` file must include the following line:
 `import ammonite.ops._, ImplicitWd._`
 
 ## Current Caveats
 In this version of the script, there are several things you need to do manually. In future versions the script will provide ways to do this for you.
 1. If you want to check in your scripts into github without all the added scaffolding, copy the `.gitignore` file from the cloned project into your project directory. The ensimizer project was used on itself and as you can see only the script is in the project.
-1. If you add more scripts to the project directory after running the script the first time, you need to manually add links with the `.scala` extension.
+
  
 
