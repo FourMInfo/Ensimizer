@@ -1,15 +1,17 @@
-@doc("Ensimizer allows you to ensime-ize an Ammonite script project directory so you can edit the scripts as Scala code in many text editor")
-// TO DO paramaterize the vals at top
+//@doc("Ensimizer allows you to ensime-ize an Ammonite script project directory so you can edit the scripts as Scala code in many text editor")
+// TO DO parameterize the vals at top
 // TO DO create .gitignore file so can check-in scripts w/o all the sbt/ensime overheads and link files
 // TO DO 
+
 val wd = pwd
 
 @main
 def ensimize() = {
   //create build.sbt
   val projname = wd.last
-  val sversion = "2.12.2"
-  val sbtversion = "0.13.15"
+  //2.12.4 is not yet supported
+  val sversion = "2.12.3"
+  val sbtversion = "1.0.2"
   write(wd/"build.sbt",s"""lazy val root = (project in file("."))
                     .settings(
                       name := \"$projname\",
