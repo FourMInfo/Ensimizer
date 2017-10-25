@@ -24,7 +24,7 @@ The Ensimizer Ammonite script uses Ammonite Ops  so your `predefScript.sc` file 
 ## Current Caveats
 In this version of the script, there are several things you need to do manually. In future versions the script will provide ways to do this for you.
 1. If you want to check in your scripts into github without all the added scaffolding, copy the `.gitignore` file from the cloned project into your project directory. The ensimizer project was used on itself and as you can see only the script is in the project.
-2. The version of Scala and SBT are hard-coded & need to be manually updated if Ensimize changes support for specific versions.
+2. The version of Scala and SBT are hard-coded & need to be manually updated if Ensime changes support for specific versions.
 
  
 
