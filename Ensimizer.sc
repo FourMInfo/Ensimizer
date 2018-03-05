@@ -6,12 +6,11 @@
 val wd = pwd
 
 @main
-def ensimize() = {
+def ensimize(target:String) = {
   //create build.sbt
   val projname = wd.last
-  //2.12.4 is not yet supported
-  val sversion = "2.12.3"
-  val sbtversion = "1.0.2"
+  val sversion = "2.12.5"
+  val sbtversion = "1.1.1"
   write(wd/"build.sbt",s"""lazy val root = (project in file("."))
                     .settings(
                       name := \"$projname\",
@@ -25,8 +24,12 @@ def ensimize() = {
   // create symbolic link from .sc scripts to .scala files in src/main/scala
   ls! wd |? (_.ext == "sc") | (fil => ln.s(fil,Path(fil.last.replaceAll("\\.[^.]*$", "") + ".scala",wd/'src/'main
 /'scala)))
-  // run sbt for ensime
-  %sbt 'ensimeConfig
+  // run sbt for ensime if target is not sbt
+  target match {
+    case "ensime" => %sbt 'ensimeConfig
+    case "sbt" => println("no config for sbt")
+    case "bad" => println("bad target parameter")
+   }
 }
 
 @main
