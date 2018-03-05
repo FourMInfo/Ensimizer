@@ -28,7 +28,7 @@ def ensimize(target:String) = {
   target match {
     case "ensime" => %sbt 'ensimeConfig
     case "sbt" => println("no config for sbt")
-    case "bad" => println("bad target parameter")
+    case _ => println("bad target parameter")
    }
 }
 
