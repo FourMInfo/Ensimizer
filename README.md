@@ -2,9 +2,9 @@
 ## Introduction
 Ensimizer allows you to creat a mock sbt directory structure for an Ammonite script project directory. This allows you to edit the scripts as Scala code in text editors that work with [Ensime](http://ensime.org/) or the new sbt support for VS Code's Language Server Protocol.For ensime, it uses [Ensime's sbt plugin](http://ensime.org/build_tools/sbt/). The only editor this has been tested on is Visual Studio Code, but there is no reason it shouldn't work in other editors. **NB:** keep in mind that because Ammonite is not pure Scala, the  code highighting won't work as well as it does for regular Scala files.
 ## How It Works
-Essentially the script creates an sbt project structure, and then creates links to the Ammonite scripts in the `src/main/scala` directory. These links have a `.scala` extension so when you open those files in your Ensime supporting text editor or VS Code, they are recognized as Scala files.
+Essentially the script creates an sbt project structure, and then creates links to the Ammonite scripts in the `src/main/scala` directory. These links have a `.scala` extension so when you open those files in your Ensime supporting text editor or VS Code with either Ensime or SBT LSP plug-in, they are recognized as Scala files.
 
-In order for this to work in Ensime, you need to first add the Ensime sbt plugin to the appropriate sbt file  as per the instructions [here](http://ensime.org/build_tools/sbt/#install). The last line of the script runs `sbt ensimeConfig` so you don't have to.
+In order for this to work with Ensime, you need to first add the Ensime sbt plugin to the appropriate sbt file  as per the instructions [here](http://ensime.org/build_tools/sbt/#install). If you use the "ensime" target (see below), the last line of the script runs `sbt ensimeConfig` so you don't have to.
 
 To run the script you go into the project directory where your Ammonite scripts are found and issue this command in your shell:
 
