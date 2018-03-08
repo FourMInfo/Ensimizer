@@ -8,7 +8,7 @@ In order for this to work in Ensime, you need to first add the Ensime sbt plugin
 
 To run the script you go into the project directory where your Ammonite scripts are found and issue this command in your shell:
 
-`amm /directory/which/has/script/Ensimizer.sc ensimize`"<target>"
+`amm /directory/which/has/script/Ensimizer.sc ensimize "<target>"`
 
 where target is either "ensime" or "sbt"
 
