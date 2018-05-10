@@ -15,7 +15,8 @@ def ensimize(target:String) = {
   write(wd/"build.sbt",s"""lazy val root = (project in file("."))
                     .settings(
                       name := \"$projname\",
-                      scalaVersion := \"$sversion\"
+                      scalaVersion := \"$sversion\",
+                      ensimeScalaVersion in ThisBuild := \"$sversion\"
                     )
                     """)
   // create project/build.properties
