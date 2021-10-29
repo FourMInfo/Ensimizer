@@ -10,15 +10,19 @@ def ensimize(target:String) = {
   //create build.sbt
   val projname = wd.last
   val sversion = "2.12.5"
-  val sbtversion = "1.1.1"
+  val sbtversion = "1.1.5"
+  val sbtEnsimeVersion = "2.6.0"
   write(wd/"build.sbt",s"""lazy val root = (project in file("."))
                     .settings(
                       name := \"$projname\",
-                      scalaVersion := \"$sversion\"
+                      scalaVersion := \"$sversion\",
+                      ensimeScalaVersion in ThisBuild := \"$sversion\"
                     )
                     """)
   // create project/build.properties
   write(wd/'project/"build.properties",s"sbt.version=$sbtversion\n")
+  // create plugins.sbt
+  write(wd/'project/"plugins.sbt",s"""addSbtPlugin("org.ensime" % "sbt-ensime" % "$sbtEnsimeVersion")""")
   // create src/main/scala
   mkdir! wd/'src/'main/'scala
   // create symbolic link from .sc scripts to .scala files in src/main/scala
